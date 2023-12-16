@@ -5,12 +5,12 @@ import LoginRegister from "./pages/LoginRegister";
 
 function App() {
   return (
-    <div>
+    <>
       <Routes>
         <Route path="/login" element={<LoginRegister />} />
         <Route path="/user" element={<DashboardUser />} />
       </Routes>
-    </div>
+    </>
   );
 }
 
