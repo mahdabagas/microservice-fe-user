@@ -2,16 +2,10 @@ import { createAxiosInstance } from "../../api/Axiosinstance";
 
 const axiosInstance = createAxiosInstance();
 
-const login = async ({ email, password }) => {
+const login = async (form) => {
   try {
     const result = await axiosInstance
-      .post(
-        "/login",
-        JSON.stringify({
-          email,
-          password,
-        })
-      )
+      .post("/login", form)
       .then((result) => {
         return result;
       })

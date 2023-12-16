@@ -2,18 +2,10 @@ import { createAxiosInstance } from "../../api/Axiosinstance";
 
 const axiosInstance = createAxiosInstance();
 
-const register = async ({ nama, role, email, password }) => {
+const register = async (form) => {
   try {
     const result = await axiosInstance
-      .post(
-        "/users",
-        JSON.stringify({
-          nama,
-          role,
-          email,
-          password,
-        })
-      )
+      .post("/users", form)
       .then((result) => {
         return result;
       })
