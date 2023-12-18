@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { login } from "../services/login";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [form, setForm] = useState({
@@ -10,6 +11,8 @@ const LoginForm = () => {
   const [error, setError] = useState(null);
 
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -23,6 +26,7 @@ const LoginForm = () => {
         setLoading(() => false);
         return;
       }
+      navigate("/users");
       setTimeout(() => {
         if (result) {
           window.location.reload();
@@ -36,7 +40,10 @@ const LoginForm = () => {
 
   return (
     <>
-      <form className="card shrink-0 max-w-md border shadow-md w-full rounded-md p-4" onSubmit={handleLogin}>
+      <form
+        className="card shrink-0 max-w-md border shadow-md w-full rounded-md p-4"
+        onSubmit={handleLogin}
+      >
         <h1 className="text-xl font-medium">Masuk</h1>
         <label className="form-control w-full">
           <div className="label">
